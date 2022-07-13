@@ -8,22 +8,31 @@ public class Assign_3 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("Enter Your NRC StateNo : "); // 12/
-		String s1 = sc.nextLine();
-		System.out.print("Enter Your NRC Township : "); // PaZaDa
-		String s2 = sc.nextLine();
-		System.out.print("Enter Your NRC Citizens or not : "); // (N)
-		String s3 = sc.nextLine();
-		System.out.print("Enter Your NRC No : "); // 123456
-		String s4 = sc.nextLine();
+		System.out.println("Please write the township in 6 characters\n e.g 12/mayana(N)123456 or 12/mayana(naing)123456");
+		System.out.print("\nEnter Your NRCNO : "); // 12/
+		String user = sc.nextLine();
+		
+		int u1 = user.length();
 		
 		// Full NRCNO
-		System.out.println("Your NRCNO :" + s1 + s2 + s3 + s4);
+		System.out.println("Your NRCNO : " + user);
+//		System.out.println("Your NRCNO : " + u1);
 		
 		// Township
-		System.out.println("Township : " + s2);
+		if(u1 == 22) {
+			System.out.println("Township : " + user.substring(3, 9));
+			System.out.println("Number : " + user.substring(16, 22));
+		}else if(u1 == 21) {
+			System.out.println("Township : " + user.substring(2, 8));
+			System.out.println("Number : " + user.substring(15, 21));
+		}else if(u1 == 18) {
+			System.out.println("Township : " + user.substring(3, 9));
+			System.out.println("Number : " + user.substring(12, 18));
+		}else if(u1 == 17) {
+			System.out.println("Township : " + user.substring(2, 8));
+			System.out.println("Number : " + user.substring(11, 17));
+		}
 		
-		// NRC no
-		System.out.println("Number : " + s4);
+
 	}
 }
