@@ -1,6 +1,7 @@
 package day9;
 
-public class SIngletonClass {
+public class SingletonClass {
+	
 
 	public static void main(String[] args) {
 		DatabaseConfig obj = DatabaseConfig.getInstance();
