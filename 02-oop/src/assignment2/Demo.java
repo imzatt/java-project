@@ -5,8 +5,8 @@ public class Demo {
 	public static void main(String[] args) {
 		
 		try {
-			Teacher u1 = new Teacher("MgMg", "12/mayana(n)123456", "Yangon", "09123456789", "Tutor", "English", "200000");
-			Teacher u2 = new Teacher("AgAg", "5/batahta(n)126562", "Sagaing", "09353454653", "Guide", "Math", "150000");
+			Teacher u1 = new Teacher("MgMg", "12/mayana(n)123456", "Yangon", "09123456789", "Tutor", "English", 200000);
+			Teacher u2 = new Teacher("AgAg", "5/batahta(n)126562", "Sagaing", "09353454653", "Guide", "Math", 150000);
 			
 //			u1.showInfo();
 //			System.out.println();

@@ -1,5 +1,7 @@
 package assignment2;
 
+import java.util.Scanner;
+
 public class Person {
 
 	private String name;
@@ -40,9 +42,9 @@ public class Person {
 class Teacher extends Person{
 	private String position;
 	private String department;
-	private String salary;
+	private int salary;
 	
-	public Teacher(String name, String nrcno, String address, String phone, String pos, String department, String salary) {
+	public Teacher(String name, String nrcno, String address, String phone, String pos, String department, int salary) {
 		super(name,nrcno,address,phone);
 		this.position = pos;
 		this.department = department;
@@ -54,7 +56,7 @@ class Teacher extends Person{
 	public String getDepartment() {
 		return department;
 	}
-	public String getSalary() {
+	public int getSalary() {
 		return salary;
 	}
 	public String getPosA(String new_pos) {
@@ -63,7 +65,7 @@ class Teacher extends Person{
 	public String getDepartmentA(String new_department) {
 		return new_department;
 	}
-	public String getSalaryA(String new_salary) {
+	public int getSalaryA(int new_salary) {
 		return new_salary;
 	}
 	
@@ -77,8 +79,16 @@ class Teacher extends Person{
 		System.out.println("Department : " + getDepartment());
 		System.out.println("Salary : " + getSalary());
 		
-		System.out.println("\nUpdate Position : " + getPosA("Assistant") + "\tSalary : " + getSalaryA("500000"));
-		System.out.println("Department : " + getDepartmentA("Physics"));
+		Scanner sc = new Scanner(System.in);
+		System.out.print("\nEnter new position : ");
+		String pos = sc.next();
+		System.out.print("Enter new salary : ");
+		int sal = sc.nextInt();
+		System.out.print("Enter new department : ");
+		String dep = sc.next();
+		
+		System.out.println("\nUpdate Position : " + getPosA(pos) + "\tSalary : " + getSalaryA(sal));
+		System.out.println("Department : " + getDepartmentA(dep));
 		
 	}
 	public void showTeacherInfo2(){
@@ -90,7 +100,7 @@ class Teacher extends Person{
 		System.out.println("Department : " + getDepartment());
 		System.out.println("Salary : " + getSalary());
 		
-		System.out.println("\nUpdate Position : " + getPosA("Lab") + "\tSalary : " + getSalaryA("300000"));
+		System.out.println("\nUpdate Position : " + getPosA("Lab") + "\tSalary : " + getSalaryA(300000));
 		System.out.println("Department : " + getDepartmentA("Chemistry"));
 	}
 }

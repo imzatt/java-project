@@ -1,0 +1,6 @@
+1001	Thae Tha Aung	Yangon
+1002	Honey Htun	Monywa
+1003	Nilar Aung	Mandalay
+1004	Cherry Oo	Mandalay
+1005	Maung Maung	Yangon
+1006	Kyaw Kyaw	Yangon
