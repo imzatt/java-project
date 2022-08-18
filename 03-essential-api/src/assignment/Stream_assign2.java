@@ -1,5 +1,6 @@
 package assignment;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -22,7 +23,7 @@ public class Stream_assign2 {
 				);
 		
 		Employees s1 = emp.stream()
-							.max(Comparator.comparingInt(e -> e.getSalary()))
+							.min(Comparator.comparingInt(e -> e.getSalary()))
 							.get();
 		System.out.println("The minimum salary of employees");
 		System.out.println(s1);
@@ -40,13 +41,13 @@ class Employees{
 	private String city;
 	private String department;
 	private int salary;
-	private String birthday;
+	private LocalDate birthday;
 	
 	public Employees() {
 		
 	}
 	
-	public Employees(String name, String city, String department, int salary, String birthday) {
+	public Employees(String name, String city, String department, int salary, LocalDate birthday) {
 		super();
 		this.name = name;
 		this.city = city;
@@ -84,10 +85,10 @@ class Employees{
 		this.salary = salary;
 	}
 
-	public String getBirthday() {
+	public LocalDate getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(String birthday) {
+	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
 

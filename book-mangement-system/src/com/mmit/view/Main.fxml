@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:controller="com.mmit.controller.LoginController" prefHeight="578.0" prefWidth="616.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+   <children>
+      <Pane prefHeight="578.0" prefWidth="297.0" style="-fx-background-color: #008fb3;">
+         <children>
+            <Label layoutX="14.0" layoutY="77.0" text="Book" textFill="#eeeded">
+               <font>
+                  <Font name="Arial" size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="93.0" layoutY="144.0" text="Mangement" textFill="#eeeded">
+               <font>
+                  <Font name="Arial" size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="204.0" layoutY="236.0" text="System" textFill="#eeeded">
+               <font>
+                  <Font name="Arial" size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="538.0" text="Developed By Jeon" textFill="#eb941a">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="174.0" fitWidth="166.0" layoutX="364.0" layoutY="67.0">
+         <image>
+            <Image url="@../../../../image/login.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="579.0" layoutY="14.0" onMouseClicked="#lbl_close_click" text="X" textFill="#1c808d">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Label layoutX="314.0" layoutY="295.0" text="Email">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="408.0" layoutY="250.0" text="Welcome" textFill="#07538a">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="314.0" layoutY="336.0" text="Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_email" layoutX="408.0" layoutY="296.0" prefHeight="25.0" prefWidth="178.0" promptText="Enter Email" />
+      <PasswordField fx:id="txt_pass" layoutX="408.0" layoutY="337.0" prefHeight="25.0" prefWidth="178.0" promptText="Enter Password" />
+      <Button layoutX="408.0" layoutY="385.0" mnemonicParsing="false" onAction="#btn_login_click" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #009999;" text="Login" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="493.0" layoutY="385.0" mnemonicParsing="false" onAction="#btn_clear_login" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #e60000;" text="Clear" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.BookController">
+   <children>
+      <Button layoutX="77.0" layoutY="71.0" mnemonicParsing="false" onAction="#btn_add_click" prefHeight="35.0" prefWidth="247.0" style="-fx-background-color: a64dff;" text="Add New Book" textFill="#ffc57d">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="77.0" layoutY="141.0" mnemonicParsing="false" onAction="#btn_editanddel_click" prefHeight="35.0" prefWidth="247.0" style="-fx-background-color: a64dff;" text="Edit / Delete Book" textFill="#ffc57d">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="77.0" layoutY="215.0" mnemonicParsing="false" onAction="#btn_view_click" prefHeight="35.0" prefWidth="247.0" style="-fx-background-color: a64dff;" text="View Book" textFill="#ffc57d">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="77.0" layoutY="293.0" mnemonicParsing="false" onAction="#btn_serach_click" prefHeight="35.0" prefWidth="247.0" style="-fx-background-color: a64dff;" text="Search Book" textFill="#ffc57d">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="77.0" layoutY="387.0" mnemonicParsing="false" onAction="#btn_back_click" prefHeight="35.0" prefWidth="247.0" style="-fx-background-color: #660066;" text="Back" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>
