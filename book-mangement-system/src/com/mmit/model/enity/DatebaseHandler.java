@@ -391,10 +391,12 @@ public class DatebaseHandler {
 	}
 
 	public static boolean deleteBook(int id) throws Exception {
+		
 		boolean result = false;
 		try(var con = createConnection()) {
 			var query = "DELETE FROM books WHERE code = ?";
 			var pstm = con.prepareStatement(query);
+			
 			pstm.setInt(1, id);
 			
 			var i = pstm.executeUpdate();

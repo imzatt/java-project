@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="679.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.MemberController">
+   <children>
+      <Pane layoutY="23.0" prefHeight="45.0" prefWidth="650.0" style="-fx-background-color: #6699ff;">
+         <children>
+            <Label layoutX="28.0" layoutY="9.0" text="Member Mangement" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ScrollPane layoutX="27.0" layoutY="94.0" prefHeight="261.0" prefWidth="598.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tbl_member" layoutY="-1.0" prefHeight="261.0" prefWidth="598.0">
+                    <columns>
+                      <TableColumn fx:id="col_cardid" prefWidth="75.0" text="Card_id" />
+                      <TableColumn fx:id="col_name" prefWidth="75.0" text="Name" />
+                        <TableColumn fx:id="col_rollno" prefWidth="75.0" text="Roll No" />
+                        <TableColumn fx:id="col_classyear" prefWidth="97.0" text="Class Year" />
+                        <TableColumn fx:id="col_academicyear" prefWidth="99.0" text="Academic Year" />
+                        <TableColumn fx:id="col_createddate" prefWidth="83.0" text="Created Date" />
+                        <TableColumn fx:id="col_experieddate" prefWidth="93.0" text="Experied Date" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label layoutX="42.0" layoutY="458.0" text="Class Year">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_classyear" layoutX="159.0" layoutY="459.0" prefHeight="25.0" prefWidth="176.0" promptText="Enter Class Year" />
+      <Label layoutX="42.0" layoutY="387.0" text="Name">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_name" layoutX="159.0" layoutY="388.0" prefHeight="25.0" prefWidth="176.0" promptText="Enter Name" />
+      <Label layoutX="42.0" layoutY="423.0" text="Roll No">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_rollno" layoutX="159.0" layoutY="424.0" prefHeight="25.0" prefWidth="176.0" promptText="Enter Roll No" />
+      <Label layoutX="42.0" layoutY="492.0" text="Academic Year">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_academicyear" layoutX="159.0" layoutY="493.0" prefHeight="25.0" prefWidth="176.0" promptText="Enter Academic Year" />
+      <Label layoutX="42.0" layoutY="528.0" text="Create Date">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Separator layoutX="356.0" layoutY="372.0" orientation="VERTICAL" prefHeight="261.0" prefWidth="3.0" />
+      <Label layoutX="373.0" layoutY="436.0" text="Card ID">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="372.0" layoutY="389.0" text="Search Member" textFill="#2d5a8d">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="95.0" layoutY="596.0" mnemonicParsing="false" onAction="#btn_add_click" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #009933;" text="Add" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="264.0" layoutY="596.0" mnemonicParsing="false" onAction="#btn_delete_click" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #e30000;" text="Delete" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="554.0" layoutY="633.0" mnemonicParsing="false" onAction="#btn_back_click" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #7575a3;" text="Back" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="553.0" layoutY="481.0" mnemonicParsing="false" onAction="#btn_search_click" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #0066ff;" text="Search" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <DatePicker fx:id="txt_createddate" layoutX="159.0" layoutY="528.0" prefHeight="25.0" prefWidth="176.0" promptText="Pickup Date" />
+      <TextField fx:id="txt_searchcardid" layoutX="448.0" layoutY="436.0" prefHeight="25.0" prefWidth="176.0" promptText="Enter Search Card_ID" />
+      <Button layoutX="181.0" layoutY="596.0" mnemonicParsing="false" onAction="#btn_edit_click" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #006677;" text="Edit" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

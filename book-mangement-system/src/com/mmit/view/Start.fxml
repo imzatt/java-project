@@ -60,7 +60,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Button layoutX="516.0" layoutY="632.0" mnemonicParsing="false" onAction="#btn_loginout_click" style="-fx-background-color: #e30000;" text="Login out" textFill="WHITE">
+      <Button layoutX="516.0" layoutY="632.0" mnemonicParsing="false" onAction="#btn_loginout_click" style="-fx-background-color: #e30000;" text="Log out" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

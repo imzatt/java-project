@@ -7,7 +7,7 @@ import java.util.TreeSet;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
+ 
 public class Collecting {
 
 	public static void main(String[] args) {

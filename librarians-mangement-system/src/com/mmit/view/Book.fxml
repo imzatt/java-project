@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="735.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.BookController">
+   <children>
+      <Pane layoutY="26.0" prefHeight="44.0" prefWidth="700.0" style="-fx-background-color: #6699ff;">
+         <children>
+            <Label layoutX="26.0" layoutY="7.0" text="Book Mangement" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ScrollPane layoutX="28.0" layoutY="96.0" prefHeight="277.0" prefWidth="645.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tbl_book" layoutY="-1.0" prefHeight="277.0" prefWidth="645.0">
+                    <columns>
+                      <TableColumn fx:id="col_code" prefWidth="66.0" text="Code" />
+                      <TableColumn fx:id="col_title" prefWidth="117.0" text="Title" />
+                        <TableColumn fx:id="col_publishdate" text="Publish Date" />
+                        <TableColumn fx:id="col_author" prefWidth="100.0" text="Author" />
+                        <TableColumn fx:id="col_category" prefWidth="89.0" text="Category" />
+                        <TableColumn fx:id="col_available" prefWidth="73.0" text="Available" />
+                        <TableColumn fx:id="col_librarianid" prefWidth="119.0" text="Librarian ID" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label layoutX="28.0" layoutY="396.0" text="Code">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_code" layoutX="112.0" layoutY="394.0" prefHeight="25.0" prefWidth="175.0" promptText="Enter Code" />
+      <Label layoutX="28.0" layoutY="435.0" text="Title">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_title" layoutX="112.0" layoutY="433.0" prefHeight="25.0" prefWidth="175.0" promptText="Enter Title" />
+      <Label layoutX="28.0" layoutY="474.0" text="Available">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="txt_date" layoutX="114.0" layoutY="511.0" promptText="Pickup Date" />
+      <Label layoutX="28.0" layoutY="552.0" text="Author">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbo_author" layoutX="113.0" layoutY="550.0" prefHeight="25.0" prefWidth="175.0" promptText="Choose Author" />
+      <Label layoutX="28.0" layoutY="590.0" text="Category">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbo_category" layoutX="113.0" layoutY="588.0" prefHeight="25.0" prefWidth="175.0" promptText="Choose Category" />
+      <TextField fx:id="txt_available" layoutX="114.0" layoutY="471.0" prefHeight="25.0" prefWidth="175.0" promptText="Enter Available" />
+      <TextField fx:id="txt_searchtitle" layoutX="40.0" layoutY="644.0" prefHeight="25.0" prefWidth="148.0" promptText="Search Title" />
+      <TextField fx:id="txt_searchauthor" layoutX="201.0" layoutY="644.0" prefHeight="25.0" prefWidth="148.0" promptText="Search Author" />
+      <TextField fx:id="txt_searchcategory" layoutX="364.0" layoutY="644.0" prefHeight="25.0" prefWidth="148.0" promptText="Search Category" />
+      <Button layoutX="543.0" layoutY="644.0" mnemonicParsing="false" onAction="#btn_search_click" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #0066ff;" text="Search" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="28.0" layoutY="514.0" text="PublishDate">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="444.0" layoutY="433.0" mnemonicParsing="false" onAction="#btn_add_click" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #009933;" text="Add" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="444.0" layoutY="499.0" mnemonicParsing="false" onAction="#btn_edit_click" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #006677;" text="Edit" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="444.0" layoutY="563.0" mnemonicParsing="false" onAction="#btn_delete_click" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #e30000;" text="Delete" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="586.0" layoutY="688.0" mnemonicParsing="false" onAction="#btn_back_click" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #7575a3;" text="Back" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

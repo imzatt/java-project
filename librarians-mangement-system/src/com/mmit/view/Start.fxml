@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="617.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.StartController">
+   <children>
+      <Pane layoutY="23.0" prefHeight="47.0" prefWidth="550.0" style="-fx-background-color: #6699ff;">
+         <children>
+            <Label layoutX="52.0" layoutY="10.0" text="Labrary Mangement System" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="38.0" layoutY="90.0" onMouseClicked="#panel_category_click" prefHeight="138.0" prefWidth="110.0">
+         <children>
+            <ImageView fitHeight="115.0" fitWidth="110.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../image/category.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="24.0" layoutY="112.0" text="Category" textFill="#1f6ba4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Pane layoutX="219.0" layoutY="90.0" onMouseClicked="#panel_book_click" prefHeight="138.0" prefWidth="110.0">
+         <children>
+            <ImageView fitHeight="115.0" fitWidth="110.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../image/book.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="37.0" layoutY="112.0" text="Book" textFill="#1f6ba4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Pane layoutX="400.0" layoutY="90.0" onMouseClicked="#panel_author_click" prefHeight="138.0" prefWidth="110.0">
+         <children>
+            <ImageView fitHeight="115.0" fitWidth="110.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../image/author.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="32.0" layoutY="112.0" text="Author" textFill="#1f6ba4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Pane layoutX="106.0" layoutY="251.0" onMouseClicked="#panel_borrow_click" prefHeight="138.0" prefWidth="110.0">
+         <children>
+            <ImageView fitHeight="104.0" fitWidth="103.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../image/borrow%20book.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="7.0" layoutY="112.0" text="Borrow Book" textFill="#1f6ba4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Pane layoutX="332.0" layoutY="251.0" onMouseClicked="#panel_return_book" prefHeight="138.0" prefWidth="110.0">
+         <children>
+            <ImageView fitHeight="115.0" fitWidth="110.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../image/return%20book.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="11.0" layoutY="112.0" text="Return Book" textFill="#1f6ba4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Pane layoutX="106.0" layoutY="408.0" onMouseClicked="#panel_librarian_click" prefHeight="138.0" prefWidth="110.0">
+         <children>
+            <ImageView fitHeight="115.0" fitWidth="110.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../image/librarian.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="26.0" layoutY="112.0" text="librarian" textFill="#1f6ba4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Pane layoutX="332.0" layoutY="408.0" onMouseClicked="#panel_member_click" prefHeight="138.0" prefWidth="110.0">
+         <children>
+            <ImageView fitHeight="115.0" fitWidth="110.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../image/member-card.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="26.0" layoutY="112.0" text="Member" textFill="#1f6ba4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Button layoutX="445.0" layoutY="570.0" mnemonicParsing="false" onAction="#btn_logout_click" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #e30000;" text="Log out" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:controller="com.mmit.controller.LoginController" prefHeight="578.0" prefWidth="616.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+<AnchorPane prefHeight="578.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.LoginController">
    <children>
       <Pane prefHeight="578.0" prefWidth="297.0" style="-fx-background-color: #008fb3;">
          <children>
@@ -38,9 +37,9 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="174.0" fitWidth="166.0" layoutX="364.0" layoutY="67.0">
+      <ImageView fitHeight="174.0" fitWidth="166.0" layoutX="363.0" layoutY="76.0">
          <image>
-            <Image url="@../../../../image/login.png" />
+            <Image url="@../../../../image/user.png" />
          </image>
       </ImageView>
       <Label layoutX="579.0" layoutY="14.0" onMouseClicked="#lbl_close_click" text="X" textFill="#1c808d">

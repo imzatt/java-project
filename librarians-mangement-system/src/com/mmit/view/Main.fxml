@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="420.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.LoginController">
+   <children>
+      <ImageView fitHeight="422.0" fitWidth="775.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../image/library%20bg.jpg" />
+         </image>
+      </ImageView>
+      <Pane focusTraversable="true" layoutX="260.0" layoutY="40.0" opacity="0.5" prefHeight="343.0" prefWidth="229.0" style="-fx-background-color: #1a1a1a;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <Pane layoutX="201.0" layoutY="27.0" prefHeight="370.0" prefWidth="346.0">
+         <children>
+            <ImageView fitHeight="123.0" fitWidth="123.0" layoutX="112.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../image/user.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="79.0" layoutY="157.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_email" layoutX="79.0" layoutY="177.0" prefHeight="25.0" prefWidth="191.0" promptText="Enter Email" />
+            <Label layoutX="79.0" layoutY="216.0" text="Password" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="txt_pass" layoutX="79.0" layoutY="236.0" prefHeight="25.0" prefWidth="191.0" promptText="Enter Password" />
+            <Button layoutX="136.0" layoutY="285.0" mnemonicParsing="false" onAction="#btn_login_click" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #cccccc;" text="Login">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <Label layoutX="16.0" layoutY="388.0" text="Developed by Z" textFill="#0f5f90">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="721.0" layoutY="12.0" onMouseClicked="#lbl_close_click" text="X">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
