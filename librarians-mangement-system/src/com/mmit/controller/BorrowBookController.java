@@ -8,7 +8,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.mmit.Start;
-import com.mmit.model.enity.Book;
 import com.mmit.model.enity.DatabaseHandler;
 import com.mmit.model.enity.Transaction;
 
@@ -26,8 +25,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class BorrowBookController implements Initializable{
 
-	private List<Book> avalist;
-	List<Integer> ava;
 
     @FXML
     private TableColumn<Transaction, LocalDate> col_borrowdate;
@@ -71,7 +68,7 @@ public class BorrowBookController implements Initializable{
         	var mem_id = txt_id.getText();
         	var code = txt_code.getText();
         	LocalDate date = LocalDate.now();
-        	var fees = 2000;
+        	var fees = 1000;
         	
         	if(mem_id.isEmpty()) {
         		showAlert(AlertType.ERROR, "Member ID is required");
@@ -88,10 +85,18 @@ public class BorrowBookController implements Initializable{
         	trans.setFees(fees);
         	trans.setCreate_by(Start.login_user);
         	
-        	DatabaseHandler.borrowBook(trans);
-        	showAlert(AlertType.INFORMATION, "Success");
-        	resetFrom();
-        	showData();
+        	if(DatabaseHandler.checkBook(trans)) {
+        		int i = DatabaseHandler.saveBook(trans);
+        		if(i>0) {
+            		showAlert(AlertType.INFORMATION, "Borrow Book Success");
+            		resetFrom();
+            		showData();
+        		}else {
+        			showAlert(AlertType.ERROR, "Sorry, this Book isn't exist");
+        			resetFrom();
+        			showData();
+        		}
+        	}
 		} 
     	catch (Exception e) {
     		e.printStackTrace();
@@ -129,8 +134,7 @@ public class BorrowBookController implements Initializable{
 		col_librarianid.setCellValueFactory(new PropertyValueFactory<>("entryName"));
 		
 		showData();
-		
-		
+			
 	}
 
 	private void showData() {

@@ -667,29 +667,183 @@ public class DatabaseHandler {
 		return data;
 	}
 
-	public static void borrowBook(Transaction trans) throws Exception {
+	public static boolean checkBook(Transaction tran) {
 		
+		boolean status = false;
 		try(var con = createConnection()) {
-			var query = """
-					INSERT INTO transactions(card_id,book_id,borrow_date,due_date,fees,lib_id)VALUES(?, ?, ?, ?, ?, ?)
-					""";
+			var query = "SELECT * FROM books WHERE code = ? ";
 			var pstm = con.prepareStatement(query);
 			
-			pstm.setInt(1, trans.getCardID());
-			pstm.setInt(2, trans.getBookID());
-			pstm.setDate(3, Date.valueOf(trans.getBorrowDate()));
-			pstm.setDate(4, Date.valueOf(trans.getDueDate()));
-			pstm.setInt(5, trans.getFees());
-			pstm.setInt(6, trans.getCreate_by().getId());
-			
-			pstm.executeUpdate();
+			pstm.setInt(1, tran.getBookID());
+			var rs = pstm.executeQuery();
+			status = rs.next();
+			con.close();
 		} 
 		catch (Exception e) {
-			throw e;
+			System.out.println(e);
 		}
-		
-		
+		return status;
 	}
+
+	public static int saveBook(Transaction tran) {
+		
+		int status = 0;
+		try(var con = createConnection()) {
+			status = updateBook(tran.getBookID());
+			
+			if(status>0) {
+				var query = """
+						INSERT INTO transactions(card_id ,book_id, borrow_date, due_date, fees, lib_id)
+						VALUES(?,?,?,?,?,?)
+						""";
+				var pstm = con.prepareStatement(query);
+				
+				pstm.setInt(1, tran.getCardID());
+				pstm.setInt(2, tran.getBookID());
+				pstm.setDate(3, Date.valueOf(tran.getBorrowDate()));
+				pstm.setDate(4, Date.valueOf(tran.getDueDate()));
+				pstm.setInt(5, tran.getFees());
+				pstm.setInt(6, tran.getCreate_by().getId());
+				
+				pstm.executeUpdate();
+				
+			}
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		return status;
+	}
+
+	private static int updateBook(int bookID) {
+		int status = 0;
+		int quantity = 0;
+		try(var con = createConnection()) {
+			var query = "SELECT available FROM books WHERE code = ?";
+			var pstm = con.prepareStatement(query);
+			
+			pstm.setInt(1, bookID);
+			
+			var rs = pstm.executeQuery();
+			if(rs.next()) {
+				quantity = rs.getInt("available");
+			}
+			
+			if(quantity>0) {
+				var query2 = "UPDATE books set available = ? WHERE code = ?"; 
+				var pstm2 = con.prepareStatement(query2);
+				
+				pstm2.setInt(1, quantity-1);
+				pstm2.setInt(2, bookID);
+				
+				status = pstm2.executeUpdate();
+			}
+			con.close();
+		} 
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		return status;
+	}
+
+	public static List<Transaction> searchCode(String code) {
+		
+		List<Transaction> list = new ArrayList<>();
+		try(var con = createConnection()) {
+			var query = """
+					SELECT t.id, m.card_id, b.code, t.borrow_date, t.due_date, t.fees, l.id 'email'
+					FROM transactions t, books b, members m, librarians l 
+					WHERE t.card_id = m.card_id AND t.book_id = b.code AND t.lib_id = l.id 
+					""";
+			
+			var params = new ArrayList<Object>();
+			if(code != null && !code.isEmpty()) {
+				query += " AND t.book_id = ?";
+				params.add(code);
+			}
+			
+			var pstm = con.prepareStatement(query);
+			for(var i=0; i<params.size(); i++) {
+				pstm.setObject((i + 1), params.get(i));
+			}
+			var rs = pstm.executeQuery();
+			while(rs.next()) {
+				
+				var trans = new Transaction();
+
+				trans.setId(rs.getInt("id"));
+				trans.setCardID(rs.getInt("card_id"));
+				trans.setBookID(rs.getInt("code"));
+				trans.setBorrowDate(LocalDate.parse(rs.getString("borrow_date")));
+				trans.setDueDate(LocalDate.parse(rs.getString("due_date")));
+				trans.setFees(rs.getInt("fees"));
+				
+				var created_by = new Librarian();
+				created_by.setEmail(rs.getString("email"));
+				trans.setCreate_by(created_by);
+
+				list.add(trans);
+			}
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public static int delete(Transaction trans) {
+		int status = 0;
+		try(var con = createConnection()) {
+			status = updatebook(trans.getBookID());
+			
+			if(status>0) {
+				var query = "DELETE FROM transactions WHERE book_id = ?";
+				
+				var pstm = con.prepareStatement(query);
+				pstm.setInt(1, trans.getBookID());
+				status = pstm.executeUpdate();
+			}
+			con.close();
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e);
+		}
+		return status;
+	}
+
+	private static int updatebook(int bookID) {
+		int status=0;
+		int quantity=0;
+		try(var con = createConnection()) {
+			var query = "SELECT available FROM books WHERE code = ?";
+			
+			var pstm = con.prepareStatement(query);
+			pstm.setInt(1, bookID);
+			var rs = pstm.executeQuery();
+			if(rs.next()) {
+				quantity = rs.getInt("available");
+			}
+			
+			if(quantity>=0) {
+				var query2 = "UPDATE books set available = ? WHERE code = ?";
+				var pstm2 = con.prepareStatement(query2);
+				pstm2.setInt(1, quantity+1);
+				pstm2.setInt(2, bookID);
+				
+				status = pstm2.executeUpdate();
+			}
+			con.close();
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		return status;
+	}
+	
+	
 
 
 }

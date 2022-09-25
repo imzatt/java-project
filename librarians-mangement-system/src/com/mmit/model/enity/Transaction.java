@@ -9,6 +9,7 @@ public class Transaction {
 	private int bookID;
 	private LocalDate borrowDate;
 	private LocalDate dueDate;
+	private LocalDate returnDate;
 	private int fees;
 	private Librarian create_by;
 	
@@ -46,7 +47,7 @@ public class Transaction {
 	public void setDueDate(LocalDate dueDate) {
 		this.dueDate = dueDate;
 	}
-	
+
 	public int getFees() {
 		return fees;
 	}
@@ -63,6 +64,13 @@ public class Transaction {
 	public void setCreate_by(Librarian create_by) {
 		this.create_by = create_by;
 	}
+	public LocalDate getReturnDate() {
+		return returnDate;
+	}
+	public void setReturnDate(LocalDate returnDate) {
+		this.returnDate = returnDate;
+	}
+
 	
 	
 	

@@ -33,7 +33,8 @@ public class SetAndMap_assignment {
 		System.out.print("\nEnter new student Rno : ");
 		int rno = sc.nextInt();
 		System.out.print("Enter new student Name : ");
-		String name = sc.next();
+		String name = sc.nextLine();
+		name+=sc.nextLine();
 		System.out.print("Enter new student Address : ");
 		String city = sc.next();
 		Student stu6 = new Student(rno , name, city);

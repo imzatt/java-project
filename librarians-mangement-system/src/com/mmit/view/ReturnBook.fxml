@@ -38,9 +38,9 @@
                       <TableColumn fx:id="col_borrowid" prefWidth="85.0" text="Borrow ID" />
                         <TableColumn fx:id="col_bookcode" prefWidth="93.0" text="Book Code" />
                         <TableColumn fx:id="col_borrowdate" prefWidth="95.0" text="Borrow Date" />
-                        <TableColumn fx:id="col_duedate" prefWidth="89.0" text="Due Date" />
-                        <TableColumn fx:id="col_returndate" prefWidth="93.0" text="Return Date" />
-                        <TableColumn fx:id="col_fees" prefWidth="110.0" text="Fees" />
+                        <TableColumn fx:id="col_duedate" prefWidth="106.0" text="Due Date" />
+                        <TableColumn fx:id="col_fees" prefWidth="84.0" text="Fees" />
+                        <TableColumn fx:id="col_libID" prefWidth="102.0" text="Lib ID" />
                     </columns>
                   </TableView>
                </children>
