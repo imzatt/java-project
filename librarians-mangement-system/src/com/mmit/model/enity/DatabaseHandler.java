@@ -418,7 +418,7 @@ public class DatabaseHandler {
 	public static void editLibranrain(Librarian lib) throws Exception {
 		
 		try(var con = createConnection()) {
-			var query = "UPDATE librarians SET name = ?, email = ?, password = ?, nrcno = ?, phone = ?";
+			var query = "UPDATE librarians SET name = ?, email = ?, password = ?, nrcno = ?, phone = ? WHERE id = ?";
 			var pstm = con.prepareStatement(query);
 			
 			pstm.setString(1, lib.getName());
@@ -426,6 +426,7 @@ public class DatabaseHandler {
 			pstm.setString(3, lib.getPassword());
 			pstm.setString(4, lib.getNrcno());
 			pstm.setInt(5, lib.getPhone());
+			pstm.setInt(6, lib.getId());
 			
 			pstm.executeUpdate();
 		} 

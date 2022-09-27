@@ -61,7 +61,7 @@ public class LibrarianController implements Initializable{
     @FXML
     private TextField txt_searchname;
 
-    private Librarian select_lib;
+    private Librarian selected_lib = null;
     @FXML
     void btn_add_click(ActionEvent event) {
     	
@@ -140,13 +140,13 @@ public class LibrarianController implements Initializable{
         	var nrc = txt_nrcno.getText();
         	var phone = txt_phone.getText();
         	
-        	select_lib.setName(name);
-        	select_lib.setEmail(email);
-        	select_lib.setPassword(pass);
-        	select_lib.setNrcno(nrc);
-        	select_lib.setPhone(Integer.parseInt(phone));
+        	selected_lib.setName(name);
+        	selected_lib.setEmail(email);
+        	selected_lib.setPassword(pass);
+        	selected_lib.setNrcno(nrc);
+        	selected_lib.setPhone(Integer.parseInt(phone));
         	
-        	DatabaseHandler.editLibranrain(select_lib);
+        	DatabaseHandler.editLibranrain(selected_lib);
         	showAlert(AlertType.INFORMATION, "Success");
         	resetFrom();
         	showData();
@@ -161,7 +161,7 @@ public class LibrarianController implements Initializable{
     @FXML
     void btn_delete_click(ActionEvent event) {
     	if(showAlert(AlertType.CONFIRMATION, "Are you sure delete ?").get() == ButtonType.OK) {
-    		DatabaseHandler.deleteLibrarain(select_lib.getId());
+    		DatabaseHandler.deleteLibrarain(selected_lib.getId());
     		resetFrom();
     		showData();
     	}
@@ -192,11 +192,12 @@ public class LibrarianController implements Initializable{
 		.addListener(
 		(obs, old_select, new_select) -> {
 			if(new_select != null) {
-				select_lib = tbl_librarian.getSelectionModel().getSelectedItem();
-				txt_name.setText(select_lib.getName());
-				txt_email.setText(select_lib.getEmail());
-				txt_nrcno.setText(select_lib.getNrcno());
-				txt_phone.setText(String.valueOf(select_lib.getPhone()));
+				selected_lib = tbl_librarian.getSelectionModel().getSelectedItem();
+				txt_name.setText(selected_lib.getName());
+				txt_email.setText(selected_lib.getEmail());
+				txt_pas.setText(selected_lib.getPassword());
+				txt_nrcno.setText(selected_lib.getNrcno());
+				txt_phone.setText(String.valueOf(selected_lib.getPhone()));
 			}
 		}
 				);
