@@ -53,6 +53,9 @@ public class ReturnBookController implements Initializable{
 
     @FXML
     private TextField txt_code;
+    
+    @FXML
+    private TextField txt_borrowid;
 
     @FXML
     void btn_back_click(ActionEvent event) throws IOException {
@@ -63,13 +66,15 @@ public class ReturnBookController implements Initializable{
     void btn_return_click(ActionEvent event) {
     	
     	var code = txt_code.getText();
+    	var id = txt_borrowid.getText();
     	
     	LocalDate return_date = LocalDate.now();
     	
     	var trans = new Transaction();
+    	trans.setId(Integer.parseInt(id));
     	trans.setBookID(Integer.parseInt(code));
     	
-    	int i = DatabaseHandler.delete(trans);
+    	int i = DatabaseHandler.delete(trans,id);
     	LocalDate borrrow_date = selected_book.getBorrowDate();
     	
     	int days = Period.between(borrrow_date, return_date).getDays();
@@ -79,11 +84,13 @@ public class ReturnBookController implements Initializable{
     			showAlert(AlertType.INFORMATION, "Return Book");
         		showData();
                 txt_code.setText(null);
+                txt_borrowid.setText(null);
                 
     		}else {
     			showAlert(AlertType.INFORMATION, "Overdue Fees : 2000");
         		showData();
                 txt_code.setText(null);
+                txt_borrowid.setText(null);
     		}
     	}
     	
@@ -96,10 +103,6 @@ public class ReturnBookController implements Initializable{
     	
     	try {
     		var code = txt_code.getText();
-        	if(code.isEmpty()) {
-        		showAlert(AlertType.ERROR, "Code is required");
-        		return;
-        	}
         	
         	List<Transaction> list = DatabaseHandler.searchCode(code);
         	tbl_retrunbook.setItems(FXCollections.observableArrayList(list));
@@ -145,6 +148,7 @@ public class ReturnBookController implements Initializable{
 			if(new_select != null) {
 				selected_book = tbl_retrunbook.getSelectionModel().getSelectedItem();
 				txt_code.setText(String.valueOf(selected_book.getBookID()));
+				txt_borrowid.setText(String.valueOf(selected_book.getId()));
 			}
 		});
 		

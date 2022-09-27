@@ -792,16 +792,18 @@ public class DatabaseHandler {
 		return list;
 	}
 
-	public static int delete(Transaction trans) {
+	public static int delete(Transaction trans,String id) {
 		int status = 0;
+		int borrow_id = 0;
 		try(var con = createConnection()) {
+			borrow_id = trans.getId();
 			status = updatebook(trans.getBookID());
 			
-			if(status>0) {
-				var query = "DELETE FROM transactions WHERE book_id = ?";
+			if(borrow_id>0) {
+				var query = "DELETE FROM transactions WHERE id = ?";
 				
 				var pstm = con.prepareStatement(query);
-				pstm.setInt(1, trans.getBookID());
+				pstm.setInt(1, trans.getId());
 				status = pstm.executeUpdate();
 			}
 			con.close();
@@ -842,8 +844,7 @@ public class DatabaseHandler {
 		}
 		return status;
 	}
-	
-	
+
 
 
 }
