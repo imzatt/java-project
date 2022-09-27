@@ -13,7 +13,7 @@
    <children>
       <Pane layoutY="23.0" prefHeight="47.0" prefWidth="550.0" style="-fx-background-color: #6699ff;">
          <children>
-            <Label layoutX="52.0" layoutY="10.0" text="Labrary Mangement System" textFill="WHITE">
+            <Label layoutX="52.0" layoutY="10.0" text="Library Mangement System" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
