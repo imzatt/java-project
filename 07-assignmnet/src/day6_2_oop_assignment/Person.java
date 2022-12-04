@@ -87,8 +87,8 @@ class Teacher extends Person{
 		System.out.print("Enter new department : ");
 		String dep = sc.next();
 		
-		System.out.println("\nUpdate Position : " + getPosA(pos) + "\tSalary : " + getSalaryA(sal));
-		System.out.println("Department : " + getDepartmentA(dep));
+		System.out.println("\nUpdate Position : " + pos + "\tSalary : " + sal);
+		System.out.println("Department : " + dep);
 		
 	}
 	public void showTeacherInfo2(){
